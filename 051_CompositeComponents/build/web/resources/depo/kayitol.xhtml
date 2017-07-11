@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      >
+    
+    <composite:interface>
+        <composite:attribute name="kullaniciAdiEtiketiLabel" />
+        <composite:attribute name="kullaniciAdiDegeriValue" />
+        
+        <composite:attribute name="parolaEtiketiLabel" />
+        <composite:attribute name="parolaDegeriValue" />
+        
+        <composite:attribute name="adiSoyadiEtiketiLabel" />
+        <composite:attribute name="adiSoyadiDegeriValue" />
+        
+        <composite:attribute name="kayitOnayEtiketiLabel" />
+        <composite:attribute name="kayitOnayDugmeAction" method-signature="java.lang.String action()" />
+        
+    </composite:interface>
+    
+    <head><title>Hello</title></head>
+    <body>
+        <composite:implementation>
+            <h:form>
+                <h:panelGrid columns="2" id="uyeKayitBilesenPaneli">
+                    #{cc.attrs.adiSoyadiEtiketiLabel}
+                    <h:inputText value="#{cc.attrs.adiSoyadiDegeriValue}" id="adiSoyadi" />
+                    
+                    #{cc.attrs.kullaniciAdiEtiketiLabel}
+                    <h:inputText value="#{cc.attrs.kullaniciAdiDegeriValue}" id="kullaniciAdi" />
+                    
+                    #{cc.attrs.parolaEtiketiLabel}
+                    <h:inputText value="#{cc.attrs.parolaDegeriValue}" id="parola" />
+                    
+                    <h:outputText></h:outputText>
+                    <h:commandButton value="#{cc.attrs.kayitOnayEtiketiLabel}" action="#{cc.attrs.kayitOnayDugmeAction}" />
+                </h:panelGrid>
+                <h:message for="uyeKayitBilesenPaneli" />
+            </h:form>
+        </composite:implementation>
+    </body>
+</html>
+
